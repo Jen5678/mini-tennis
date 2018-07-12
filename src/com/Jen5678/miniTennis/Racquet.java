@@ -11,7 +11,7 @@ public class Racquet {
 	private static final int RACQET_HEIGHT 	= 10;
 	private static final int Y_POSITION 	= 430;
 	
-	private int x 	= 0;
+	private int x 	= 250;
 	private int xa 	= 0;
 	
 	private Game game;
@@ -35,9 +35,9 @@ public class Racquet {
 
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) 
-			xa = -1;
+			xa = -game.speed;
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) 
-			xa = 1;	
+			xa = game.speed;	
 	}
 	
 	public Rectangle getBounds() {

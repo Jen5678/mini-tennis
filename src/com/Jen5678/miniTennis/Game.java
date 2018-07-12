@@ -21,7 +21,7 @@ public class Game extends JPanel{
 	int speed = 1;
 	
 	private int getScore() {
-	return speed = 1;
+		return speed - 1;
 	}
 	
 	
@@ -80,15 +80,12 @@ public class Game extends JPanel{
 		while (true) {
 			game.move();
 			game.repaint();
-			Thread.sleep(5);
+			Thread.sleep(10);
 		}
 	}
 	
-//	public class MyKeyListener implements KeyListener {
-		
-	
 	public void gameOver() {
-		JOptionPane.showMessageDialog(this, "Game Over", "Game Over", JOptionPane.YES_NO_OPTION);
+		JOptionPane.showMessageDialog(this, "Your score was: " + getScore(), "Game Over", JOptionPane.YES_NO_OPTION);
 		System.exit(0);
 	}
 }

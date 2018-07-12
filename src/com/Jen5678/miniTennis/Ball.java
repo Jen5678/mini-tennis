@@ -19,19 +19,21 @@ public class Ball {
 	}
 	
 	void move() {
-		if (x + xa < 0) 
-			xa = 1;
-		if (x + xa > game.getWidth() - BALLDIAMETER) 
-			xa = -1;
-		if (y + ya < 0)  
-			ya = 1;
-		if (y + ya > game.getHeight() - BALLDIAMETER) 
-			game.gameOver();
-		if (collision()) {
-			ya = -1;
-			y = game.racquet.getTopY() - BALLDIAMETER;
-		}
 
+		if (x + xa < 0) {
+			xa = game.speed; 
+		} else if (x + xa > game.getWidth() - BALLDIAMETER) {
+			xa = -game.speed;
+		} else if (y + ya < 0) {  
+			ya = game.speed;
+		} else if (y + ya > game.getHeight() - BALLDIAMETER) { 
+			game.gameOver();
+		} else if (collision()) {
+			ya = -game.speed;
+			y = game.racquet.getTopY() - BALLDIAMETER;
+			game.speed++;
+		}
+		
 		x += xa;
 		y += ya;
 	}
